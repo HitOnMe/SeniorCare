@@ -37,6 +37,7 @@ jobs:
 
       # Bước 5: Build project
       - name: Build frontend
+        working-directory: frontend
         run: yarn build
 
       # Bước 6: Optional: Upload build artifacts
