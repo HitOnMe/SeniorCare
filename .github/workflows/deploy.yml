@@ -30,7 +30,8 @@ jobs:
       # Bước 3: Cài Yarn
       - name: Setup Yarn
         uses: borales/actions-yarn@v4
-
+        with:
+          cmd: install
       # Bước 4: Cài dependencies
       - name: Install dependencies
         run: yarn install
