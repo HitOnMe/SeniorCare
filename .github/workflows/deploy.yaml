@@ -1,0 +1,49 @@
+name: Build & Deploy React Frontend
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+
+      # 4. Build React app
+      - name: Build React app
+        working-directory: frontend
+        run: yarn build
+
+      # 5. Create .nojekyll to disable Jekyll on Pages
+      - name: Disable Jekyll
+        run: |
+          cd frontend/build
+          touch .nojekyll
+
+      # 6. Deploy to GitHub Pages (only gh-pages branch, no Jekyll)
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: frontend/build
+          publish_branch: gh-pages
+          force_orphan: true
