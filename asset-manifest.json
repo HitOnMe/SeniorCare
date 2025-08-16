@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SeniorCare/static/css/main.698a988d.css",
+    "main.js": "/SeniorCare/static/js/main.0c17c1a2.js",
+    "index.html": "/SeniorCare/index.html",
+    "main.698a988d.css.map": "/SeniorCare/static/css/main.698a988d.css.map",
+    "main.0c17c1a2.js.map": "/SeniorCare/static/js/main.0c17c1a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.698a988d.css",
+    "static/js/main.0c17c1a2.js"
+  ]
+}
